@@ -8,41 +8,29 @@ import numpy
 
 @csrf_exempt
 def sum(request):
-    if request.method == 'POST':
-        req_json = json.loads(request.body)
-        numbers = req_json.get('numbers')
+    req_json = json.loads(request.body)
+    numbers = req_json.get('numbers')
 
-        return JsonResponse({
-            'result': sum(numbers)
-        })
     return JsonResponse({
-        'error': 'POST request required'
+        'result': sum(numbers)
     })
 
 
 @csrf_exempt
 def avg(request):
-    if request.method == 'POST':
-        req_json = json.loads(request.body)
-        numbers = req_json.get('numbers')
+    req_json = json.loads(request.body)
+    numbers = req_json.get('numbers')
 
-        return JsonResponse({
-            'result': numpy.average(numbers)
-        })
     return JsonResponse({
-        'error': 'POST request required'
+        'result': numpy.average(numbers)
     })
 
 
 @csrf_exempt
 def product(request):
-    if request.method == 'POST':
-        req_json = json.loads(request.body)
-        numbers = req_json.get('numbers')
+    req_json = json.loads(request.body)
+    numbers = req_json.get('numbers')
 
-        return JsonResponse({
-            'result': numpy.prod(numbers)
-        })
     return JsonResponse({
-        'error': 'POST request required'
+        'result': numpy.prod(numbers)
     })
